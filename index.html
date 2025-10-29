@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品加工设备复习笔记</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <style>
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 4rem;
+            background: #fff;
+        }
+
+        .footer-text {
+            font-style: italic;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#10b981',
+                        accent: '#f59e0b',
+                        neutral: '#6b7280'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            .card-shadow {
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.02);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- 顶部导航 -->
+    <nav class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fa fa-book text-2xl"></i>
+                    <h1 class="text-xl font-bold">食品加工设备复习笔记</h1>
+                </div>
+                <div class="text-sm opacity-90">
+                    <i class="fa fa-calendar mr-2"></i>
+                    考试时间：明天 8:30
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container mx-auto px-6 py-8">
+        <!-- 考试重点提示 -->
+        <div class="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-400 p-6 mb-8 rounded-r-lg card-shadow">
+            <div class="flex items-start space-x-3">
+                <i class="fa fa-exclamation-triangle text-red-500 text-xl mt-1"></i>
+                <div>
+                    <h3 class="text-lg font-semibold text-red-800 mb-2">考试重点提醒</h3>
+                    <ul class="text-red-700 space-y-1">
+                        <li>• 物料恒算要有详细计算过程</li>
+                        <li>• 设备选型需要掌握各类设备的适用范围</li>
+                        <li>• 固体和液体输送设备的特点对比</li>
+                        <li>• 记得带计算器</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 目录导航 -->
+        <div class="bg-white rounded-xl p-6 mb-8 card-shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fa fa-list-ul text-primary mr-3"></i>
+                目录导航
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="#solid-transport" class="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                    <i class="fa fa-cogs text-primary mr-3"></i>
+                    固体输送设备
+                </a>
+                <a href="#liquid-transport" class="flex items-center p-3 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                    <i class="fa fa-tint text-secondary mr-3"></i>
+                    液体输送设备
+                </a>
+                <a href="#separation" class="flex items-center p-3 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                    <i class="fa fa-filter text-purple-600 mr-3"></i>
+                    分离设备
+                </a>
+                <a href="#evaporation" class="flex items-center p-3 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors">
+                    <i class="fa fa-fire text-accent mr-3"></i>
+                    蒸发设备
+                </a>
+                <a href="#drying" class="flex items-center p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
+                    <i class="fa fa-sun-o text-red-500 mr-3"></i>
+                    干燥设备
+                </a>
+                <a href="#summary" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fa fa-table text-neutral mr-3"></i>
+                    设备选型总结
+                </a>
+            </div>
+        </div>
+
+        <!-- 固体输送设备 -->
+        <section id="solid-transport" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-cogs text-primary mr-4"></i>
+                    固体输送设备
+                </h2>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <!-- 带式输送机 -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <img src="https://doc.doubao.com/s/58sv0soz9Gs/" alt="带式输送机" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-xl font-bold text-blue-800">带式输送机</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-blue-700">
+                            <p><strong>适用物料：</strong>颗粒状、粉末状固体物料</p>
+                            <p><strong>特点：</strong>输送距离长，效率高</p>
+                            <p><strong>应用：</strong>食品生产线、包装输送</p>
+                        </div>
+                    </div>
+
+                    <!-- 斗式提升机 -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <img src="https://doc.doubao.com/s/7XRg1z-tsas/" alt="斗式提升机" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-xl font-bold text-green-800">斗式提升机</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-green-700">
+                            <p><strong>适用物料：</strong>颗粒状、小块状物料</p>
+                            <p><strong>特点：</strong>垂直输送，占地面积小</p>
+                            <p><strong>应用：</strong>谷物、饲料、食品颗粒</p>
+                        </div>
+                    </div>
+
+                    <!-- 螺旋输送机 -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <img src="https://doc.doubao.com/s/Esi0XsI5H40/" alt="螺旋输送机" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-xl font-bold text-purple-800">螺旋输送机</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-purple-700">
+                            <p><strong>适用物料：</strong>粉末状、糊状物料</p>
+                            <p><strong>特点：</strong>结构简单，密封性好</p>
+                            <p><strong>应用：</strong>面粉、淀粉、酱料输送</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 固体输送设备对比表 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">固体输送设备对比</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-3 text-left rounded-tl-lg">设备类型</th>
+                                    <th class="p-3 text-left">输送距离</th>
+                                    <th class="p-3 text-left">输送角度</th>
+                                    <th class="p-3 text-left">物料类型</th>
+                                    <th class="p-3 text-left rounded-tr-lg">优点</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">带式输送机</td>
+                                    <td class="p-3">长距离</td>
+                                    <td class="p-3">水平或小角度</td>
+                                    <td class="p-3">颗粒、粉末</td>
+                                    <td class="p-3">效率高，连续输送</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">斗式提升机</td>
+                                    <td class="p-3">短距离</td>
+                                    <td class="p-3">垂直</td>
+                                    <td class="p-3">颗粒、小块</td>
+                                    <td class="p-3">占地面积小</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium rounded-bl-lg">螺旋输送机</td>
+                                    <td class="p-3">中等距离</td>
+                                    <td class="p-3">水平或倾斜</td>
+                                    <td class="p-3">粉末、糊状</td>
+                                    <td class="p-3 rounded-br-lg">密封性好，结构简单</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 液体输送设备 -->
+        <section id="liquid-transport" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-tint text-secondary mr-4"></i>
+                    液体输送设备
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <!-- 离心泵 -->
+                    <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-xl p-6 hover-scale">
+                        <div class="flex items-center mb-4">
+                            <img src="https://doc.doubao.com/s/hXe9cHbuaV8/" alt="离心泵" class="w-32 h-32 object-cover rounded-lg mr-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-cyan-800">离心泵</h3>
+                                <p class="text-sm text-cyan-600">最常用的液体输送设备</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm text-cyan-700">
+                            <p><strong>适用：</strong>低黏度液体，清水、果汁等</p>
+                            <p><strong>特点：</strong>流量大，结构简单</p>
+                            <p><strong>注意：</strong>不能空转，需要灌泵</p>
+                        </div>
+                    </div>
+
+                    <!-- 螺杆泵 -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 hover-scale">
+                        <div class="flex items-center mb-4">
+                            <img src="https://doc.doubao.com/s/GFZXB4pdvNE/" alt="螺杆泵" class="w-32 h-32 object-cover rounded-lg mr-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-indigo-800">螺杆泵</h3>
+                                <p class="text-sm text-indigo-600">高黏度液体输送</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm text-indigo-700">
+                            <p><strong>适用：</strong>高黏度液体，酱料、蜂蜜</p>
+                            <p><strong>特点：</strong>效率高，脉动小</p>
+                            <p><strong>原理：</strong>与罗茨泵类似</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他液体输送设备 -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-pink-800 mb-3 flex items-center">
+                            <i class="fa fa-piston text-pink-600 mr-2"></i>
+                            活塞泵
+                        </h4>
+                        <ul class="text-sm text-pink-700 space-y-1">
+                            <li>• 适用于固液混合物输送</li>
+                            <li>• 如草莓带水一起输送</li>
+                            <li>• 低黏度液体也适用</li>
+                            <li>• 牡蛎等物料可用活塞泵运输</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-yellow-800 mb-3 flex items-center">
+                            <i class="fa fa-cogs text-yellow-600 mr-2"></i>
+                            罗茨泵
+                        </h4>
+                        <ul class="text-sm text-yellow-700 space-y-1">
+                            <li>• 适用于黏稠液体</li>
+                            <li>• 罐头生产常用</li>
+                            <li>• 结构简单可靠</li>
+                            <li>• 效率较高</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 液体输送设备选择流程图 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">液体输送设备选型流程</h4>
+                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="text-center">
+                            <div class="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 text-xl font-bold">1</div>
+                            <p class="text-sm font-medium">确定液体黏度</p>
+                        </div>
+                        <div class="text-gray-400 text-2xl">→</div>
+                        <div class="text-center">
+                            <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 text-xl font-bold">2</div>
+                            <p class="text-sm font-medium">检查是否含固体颗粒</p>
+                        </div>
+                        <div class="text-gray-400 text-2xl">→</div>
+                        <div class="text-center">
+                            <div class="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 text-xl font-bold">3</div>
+                            <p class="text-sm font-medium">选择合适泵型</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分离设备 -->
+        <section id="separation" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-filter text-purple-600 mr-4"></i>
+                    分离设备
+                </h2>
+
+                <!-- 过滤设备 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">过滤设备</h3>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://doc.doubao.com/s/bo-VsHapRmQ/" alt="板框压滤机" class="w-40 h-32 object-cover rounded-lg mr-6">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-purple-800 mb-2">板框压滤机</h4>
+                                <p class="text-sm text-purple-700 mb-2">适用于食品过滤，如果汁、饮料过滤</p>
+                                <div class="grid grid-cols-2 gap-4 text-xs">
+                                    <div><strong>优点：</strong>过滤效果好，可高压操作</div>
+                                    <div><strong>缺点：</strong>间歇操作，劳动强度大</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 离心分离设备 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">离心分离设备</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 text-center">
+                            <i class="fa fa-bullseye text-green-600 text-3xl mb-3"></i>
+                            <h4 class="font-bold text-green-800 mb-2">卧式螺旋离心机</h4>
+                            <p class="text-xs text-green-700">连续操作，适用于大量物料分离</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
+                            <i class="fa fa-circle text-blue-600 text-3xl mb-3"></i>
+                            <h4 class="font-bold text-blue-800 mb-2">立式离心机</h4>
+                            <p class="text-xs text-blue-700">结构紧凑，适用于中小规模生产</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 text-center">
+                            <i class="fa fa-th text-orange-600 text-3xl mb-3"></i>
+                            <h4 class="font-bold text-orange-800 mb-2">碟式离心机</h4>
+                            <p class="text-xs text-orange-700">分离效率高，适用于乳浊液分离</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 膜分离设备 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">膜分离设备</h3>
+                    <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-6">
+                        <div class="flex items-center mb-6">
+                            <img src="https://doc.doubao.com/s/KJr_2YN9N8M/" alt="膜分离设备" class="w-48 h-32 object-cover rounded-lg mr-6">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-teal-800 mb-2">膜分离技术</h4>
+                                <p class="text-sm text-teal-700">根据孔径大小分离不同分子量物质</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <h5 class="font-bold text-teal-800 text-sm mb-1">微滤 (MF)</h5>
+                                <p class="text-xs text-teal-600">去除悬浮物、细菌</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <h5 class="font-bold text-teal-800 text-sm mb-1">超滤 (UF)</h5>
+                                <p class="text-xs text-teal-600">分离蛋白质、胶体</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <h5 class="font-bold text-teal-800 text-sm mb-1">纳滤 (NF)</h5>
+                                <p class="text-xs text-teal-600">分离小分子有机物</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <h5 class="font-bold text-teal-800 text-sm mb-1">反渗透 (RO)</h5>
+                                <p class="text-xs text-teal-600">海水淡化、纯水制备</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 清洗分选设备 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-4">清洗分选设备</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa fa-tint text-indigo-600 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-indigo-800">清洗池</h4>
+                                <p class="text-sm text-indigo-600">适用于蔬菜、水果清洗</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa fa-shower text-indigo-600 text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-indigo-800">高压水枪</h4>
+                                <p class="text-sm text-indigo-600">适用于表面清洗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 蒸发设备 -->
+        <section id="evaporation" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-fire text-accent mr-4"></i>
+                    蒸发设备
+                </h2>
+
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <!-- 升膜式蒸发器 -->
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-arrow-up text-orange-600 text-4xl mb-3"></i>
+                            <h3 class="text-xl font-bold text-orange-800">升膜式蒸发器</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-orange-700">
+                            <p><strong>原理：</strong>液体在加热管内上升形成膜状</p>
+                            <p><strong>适用：</strong>热敏性物料</p>
+                            <p><strong>特点：</strong>停留时间短，传热效率高</p>
+                        </div>
+                    </div>
+
+                    <!-- 降膜式蒸发器 -->
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <img src="https://doc.doubao.com/s/NbWqdWIslQQ/" alt="降膜蒸发器" class="w-full h-32 object-cover rounded-lg mb-3">
+                            <h3 class="text-xl font-bold text-red-800">降膜式蒸发器</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-red-700">
+                            <p><strong>原理：</strong>液体从顶部向下形成膜状</p>
+                            <p><strong>适用：</strong>高黏度液体</p>
+                            <p><strong>特点：</strong>处理量大，能耗低</p>
+                        </div>
+                    </div>
+
+                    <!-- 机械增压蒸发器 -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-bullseye text-yellow-600 text-4xl mb-3"></i>
+                            <h3 class="text-xl font-bold text-yellow-800">机械增压蒸发器</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-yellow-700">
+                            <p><strong>原理：</strong>利用机械压缩提高二次蒸汽压力</p>
+                            <p><strong>适用：</strong>大规模蒸发</p>
+                            <p><strong>特点：</strong>节能效果显著</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 蒸发设备应用场景 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">蒸发设备应用场景</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-gray-700 mb-2">热敏性物料（如牛奶、果汁）</h5>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• 优先选择升膜式蒸发器</li>
+                                <li>• 操作温度较低</li>
+                                <li>• 物料停留时间短</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-700 mb-2">高黏度物料（如糖浆、酱料）</h5>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• 优先选择降膜式蒸发器</li>
+                                <li>• 流速较慢，传热均匀</li>
+                                <li>• 不易结垢</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 干燥设备 -->
+        <section id="drying" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-sun-o text-red-500 mr-4"></i>
+                    干燥设备
+                </h2>
+
+                <!-- 常规干燥设备 -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <!-- 转筒干燥器 -->
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-bullseye text-red-600 text-4xl mb-3"></i>
+                            <h3 class="text-xl font-bold text-red-800">转筒干燥器</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-red-700">
+                            <p><strong>适用：</strong>颗粒状、块状物料</p>
+                            <p><strong>注意：</strong>不适用粉末状物料</p>
+                            <p><strong>限制：</strong>固体黏性强的物料不适用</p>
+                        </div>
+                    </div>
+
+                    <!-- 气流干燥箱 -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <img src="https://doc.doubao.com/s/uR4Y9UlTT1A/" alt="气流干燥箱" class="w-full h-32 object-cover rounded-lg mb-3">
+                            <h3 class="text-xl font-bold text-green-800">气流干燥箱</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-green-700">
+                            <p><strong>适用：</strong>粉末状、颗粒状物料</p>
+                            <p><strong>特点：</strong>干燥速度快，效率高</p>
+                            <p><strong>应用：</strong>食品添加剂、调味料</p>
+                        </div>
+                    </div>
+
+                    <!-- 流筒干燥器 -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 hover-scale">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-exchange text-blue-600 text-4xl mb-3"></i>
+                            <h3 class="text-xl font-bold text-blue-800">流筒干燥器</h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-blue-700">
+                            <p><strong>适用：</strong>片状、条状物料</p>
+                            <p><strong>特点：</strong>连续操作，质量均匀</p>
+                            <p><strong>应用：</strong>脱水蔬菜、水果片</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 冷冻干燥设备 -->
+                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-xl p-6 mb-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://doc.doubao.com/s/i9Ga9b9gCa4/" alt="冷冻干燥设备" class="w-48 h-32 object-cover rounded-lg mr-6">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-cyan-800 mb-2">冷冻干燥设备</h3>
+                            <p class="text-sm text-cyan-700 mb-2">适用于热敏性物料的干燥</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <h4 class="font-bold text-red-800 mb-2">重要提醒</h4>
+                        <p class="text-sm text-red-700">
+                            <strong>虾青素、VC等不耐温物质不能用喷雾干燥，必须使用冷冻干燥！</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 干燥设备选择指南 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">干燥设备选择指南</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-3 text-left rounded-tl-lg">物料特性</th>
+                                    <th class="p-3 text-left">推荐设备</th>
+                                    <th class="p-3 text-left">不推荐设备</th>
+                                    <th class="p-3 text-left rounded-tr-lg">备注</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">热敏性物料（虾青素、VC）</td>
+                                    <td class="p-3 text-green-600">冷冻干燥</td>
+                                    <td class="p-3 text-red-600">喷雾干燥</td>
+                                    <td class="p-3">必须低温干燥</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">黏性强固体</td>
+                                    <td class="p-3 text-green-600">气流干燥箱</td>
+                                    <td class="p-3 text-red-600">转筒干燥器</td>
+                                    <td class="p-3">易结块物料需特殊处理</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium rounded-bl-lg">粉末状物料</td>
+                                    <td class="p-3 text-green-600">气流干燥箱</td>
+                                    <td class="p-3 text-red-600">转筒干燥器</td>
+                                    <td class="p-3 rounded-br-lg">注意粉尘控制</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 设备选型总结 -->
+        <section id="summary" class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-table text-neutral mr-4"></i>
+                    设备选型总结
+                </h2>
+
+                <!-- 决策树图表 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">设备选型决策树</h3>
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6">
+                        <canvas id="decisionTreeChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- 重要知识点 -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-blue-800 mb-4 flex items-center">
+                            <i class="fa fa-lightbulb-o text-blue-600 mr-2"></i>
+                            关键知识点
+                        </h4>
+                        <ul class="text-sm text-blue-700 space-y-2">
+                            <li>• 物料恒算必须写出详细计算过程</li>
+                            <li>• 固液混合物优先选择活塞泵</li>
+                            <li>• 高黏度液体选择螺杆泵或罗茨泵</li>
+                            <li>• 热敏性物料必须用冷冻干燥</li>
+                            <li>• 膜分离按孔径大小选择合适类型</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6">
+                        <h4 class="text-lg font-bold text-orange-800 mb-4 flex items-center">
+                            <i class="fa fa-exclamation-circle text-orange-600 mr-2"></i>
+                            常见错误
+                        </h4>
+                        <ul class="text-sm text-orange-700 space-y-2">
+                            <li>• 虾青素用喷雾干燥（错误）</li>
+                            <li>• 粉末物料用转筒干燥器（错误）</li>
+                            <li>• 高黏度液体用离心泵（错误）</li>
+                            <li>• 黏性强物料用转筒干燥器（错误）</li>
+                            <li>• 固液混合物用离心泵（错误）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 设备应用场景速查表 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">设备应用场景速查表</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="p-2 text-left rounded-tl-lg">物料类型</th>
+                                    <th class="p-2 text-left">输送设备</th>
+                                    <th class="p-2 text-left">分离设备</th>
+                                    <th class="p-2 text-left">干燥设备</th>
+                                    <th class="p-2 text-left rounded-tr-lg">备注</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">清水、果汁</td>
+                                    <td class="p-2">离心泵</td>
+                                    <td class="p-2">板框压滤机</td>
+                                    <td class="p-2">升膜蒸发器</td>
+                                    <td class="p-2">注意卫生要求</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">酱料、蜂蜜</td>
+                                    <td class="p-2">螺杆泵</td>
+                                    <td class="p-2">膜分离</td>
+                                    <td class="p-2">降膜蒸发器</td>
+                                    <td class="p-2">高黏度处理</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">草莓、牡蛎</td>
+                                    <td class="p-2">活塞泵</td>
+                                    <td class="p-2">卧式离心机</td>
+                                    <td class="p-2">气流干燥箱</td>
+                                    <td class="p-2">固液混合</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-medium rounded-bl-lg">虾青素、VC</td>
+                                    <td class="p-2">螺杆泵</td>
+                                    <td class="p-2">膜分离</td>
+                                    <td class="p-2 text-red-600 rounded-br-lg">冷冻干燥</td>
+                                    <td class="p-2">热敏性物料</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 复习进度 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl p-8 card-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fa fa-tasks text-secondary mr-4"></i>
+                    复习进度跟踪
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fa fa-cogs text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">固体输送</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">已完成</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fa fa-tint text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">液体输送</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">已完成</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fa fa-filter text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">分离设备</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">已完成</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fa fa-fire text-orange-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">蒸发干燥</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-orange-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">已完成</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+    由 Karcen Zheng 制作，<a href="https://karcen.github.io/zhengjiacheng.github.io/" target="_blank">联系我</a>
+	</footer>
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 决策树图表
+        const ctx = document.getElementById('decisionTreeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['固体输送', '液体输送', '分离设备', '蒸发设备', '干燥设备'],
+                datasets: [{
+                    data: [20, 25, 20, 15, 20],
+                    backgroundColor: [
+                        '#3b82f6',
+                        '#10b981',
+                        '#8b5cf6',
+                        '#f59e0b',
+                        '#ef4444'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '设备类型分布',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                }
+            }
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            const cards = document.querySelectorAll('.hover-scale');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+
+        // 滚动时的导航栏效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)';
+            } else {
+                nav.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
