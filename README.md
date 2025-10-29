@@ -347,13 +347,3 @@ This study notes is designed to help students prepare for food processing equipm
 * **Review common mistakes** to avoid them
 
 **Good luck with your exams! 🍀**
-
-
-
-***
-
-*Last Updated: October 28, 2025*
-
-*Version: 1.0.0*
-
-> （注：文档部分内容可能由 AI 生成）
